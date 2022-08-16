@@ -31,6 +31,7 @@ class DeliveryInfo extends Model
     protected $dates;
     protected $region;
     protected $outlet;
+    protected $outletStorageLimitDate;
 
     protected $mappingClasses = [
         'address' => Address::class,
@@ -133,5 +134,13 @@ class DeliveryInfo extends Model
     public function getOutlet()
     {
         return $this->outlet;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOutletStorageLimitDate()
+    {
+        return $this->outletStorageLimitDate;
     }
 }
