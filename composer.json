@@ -1,5 +1,5 @@
 {
-  "name": "yandex-market/yandex-market-php-partner",
+  "name": "spellsmell/yandex-market-php-partner",
   "description": "Yandex PHP Market Partners library.",
   "keywords":["yandex","sdk", "market"],
   "type":"library",
