@@ -4,7 +4,6 @@
   "keywords":["yandex","sdk", "market"],
   "type":"library",
   "license": "MIT",
-  "minimum-stability": "dev",
   "repositories": [
     {
       "type": "github",
