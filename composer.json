@@ -1,15 +1,21 @@
 {
-  "name": "yandex-market/yandex-market-php-partner",
+  "name": "spellsmell/yandex-market-php-partner",
   "description": "Yandex PHP Market Partners library.",
   "keywords":["yandex","sdk", "market"],
   "type":"library",
   "license": "MIT",
   "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "github",
+      "url": "https://github.com/spellsmell/yandex-market-php-common/"
+    }
+  ],
   "require": {
     "php": ">=5.6",
     "ext-curl": "*",
     "ext-json": "*",
-    "yandex-market/yandex-market-php-common": "1.0.0"
+    "spellsmell/yandex-market-php-common": "dev-master"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.0",
@@ -19,7 +25,7 @@
   "authors": [
     {
       "name": "Kirill Litvinov",
-      "email": "Kirill.Litvinov@nixsolutions.com"
+      "email": "ym-sdk@yandex-team.ru"
     }
   ],
   "autoload": {

@@ -33,6 +33,16 @@ class Client extends AbstractServiceClient
     private $clientId;
 
     /**
+     * Headers for API
+     *
+     * @var array
+     */
+    private $headers = [
+        'Yandex-Market-Php-Version' => 'yandex.market php library 1.1.0'
+    ];
+
+
+    /**
      * @param string $token access token
      */
     public function __construct($clientId = '', $token = '')
@@ -89,14 +99,16 @@ class Client extends AbstractServiceClient
      * but transform key=>value where key == value to "?key" param.
      *
      * @param array|object $queryData
-     * @param string       $prefix
-     * @param string       $argSeparator
-     * @param int          $encType
+     * @param null $dbgKey
+     * @param string $prefix
+     * @param string $argSeparator
+     * @param int $encType
      *
      * @return string $queryString
      */
     protected function buildQueryString(
         array $queryData,
+        $dbgKey = null,
         $prefix = '',
         $argSeparator = '&',
         $encType = PHP_QUERY_RFC3986
@@ -113,6 +125,9 @@ class Client extends AbstractServiceClient
             if ($key === $value) {
                 $queryString = str_replace("{$key}={$value}", $value, $queryString);
             }
+        }
+        if ($dbgKey) {
+            $queryString ? $queryString .= '&dbg=' . $dbgKey : $queryString .= 'dbg=' . $dbgKey;
         }
 
         return $queryString;
@@ -135,7 +150,7 @@ class Client extends AbstractServiceClient
     protected function sendRequest($method, $uri, array $options = [])
     {
         try {
-            $response = $this->getClient()->request($method, $uri, $options);
+            $response = $this->getClient($this->headers)->request($method, $uri, $options);
         } catch (ClientException $ex) {
             $result = $ex->getResponse();
 
@@ -165,5 +180,13 @@ class Client extends AbstractServiceClient
         }
 
         return $response;
+    }
+
+    protected function addDebugKey($resource, $dbgKey)
+    {
+        if($dbgKey) {
+            return $resource . '?dbg=' . $dbgKey;
+        }
+        return $resource;
     }
 }
