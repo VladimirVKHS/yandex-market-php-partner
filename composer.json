@@ -4,10 +4,19 @@
   "keywords":["yandex","sdk", "market"],
   "type":"library",
   "license": "MIT",
+  "minimum-stability": "dev",
   "repositories": [
     {
-      "type": "github",
-      "url": "https://github.com/spellsmell/yandex-market-php-common/"
+      "type": "package",
+      "package": {
+        "name": "spellsmell/yandex-market-php-common",
+        "version": "dev-master",
+        "source": {
+          "url": "https://github.com/spellsmell/yandex-market-php-common/",
+          "type": "git",
+          "reference": "origin/master"
+        }
+      }
     }
   ],
   "require": {
