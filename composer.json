@@ -5,6 +5,12 @@
   "type":"library",
   "license": "MIT",
   "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "github",
+      "url": "https://github.com/spellsmell/yandex-market-php-common/"
+    }
+  ],
   "require": {
     "php": ">=5.6",
     "ext-curl": "*",
@@ -28,12 +34,6 @@
       "Yandex\\Tests": "tests/"
     }
   },
-  "repositories": [
-    {
-      "type": "github",
-      "url": "https://github.com/spellsmell/yandex-market-php-common/"
-    }
-  ],
   "scripts": {
     "test" : "php vendor/bin/phpunit --configuration tests/phpunit.xml.dist --coverage-clover=.reports/clover.xml"
   }
